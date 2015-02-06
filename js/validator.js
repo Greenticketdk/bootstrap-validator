@@ -171,9 +171,9 @@
         .append($.map(errors, function (error) { return $('<li/>')[method](error) }))
 
       $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html())
-      $block.empty().append(errors)
+      $block.empty().append(errors).removeClass('hidden')
 
-      $group.addClass('has-error')
+      $group.addClass('has-error').find('input').addClass('has-error')
     })
   }
 
@@ -181,8 +181,8 @@
     var $group = $el.closest('.form-group')
     var $block = $group.find('.help-block.with-errors')
 
-    $block.html($block.data('bs.validator.originalContent'))
-    $group.removeClass('has-error')
+    $block.html($block.data('bs.validator.originalContent')).addClass('hidden')
+    $group.removeClass('has-error').find('input').removeClass('has-error')
   }
 
   Validator.prototype.hasErrors = function () {

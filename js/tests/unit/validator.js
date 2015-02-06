@@ -192,11 +192,13 @@ $(function () {
 
     $(form)
       .on('invalid.bs.validator', function (e) {
-        ok($(this).find('.form-group').hasClass('has-error'), '.has-error class added to form-group')
+          ok($(this).find('.form-group').hasClass('has-error'), '.has-error class added to form-group')
+          ok($(this).find('.form-group').find('input').hasClass('has-error'), '.has-error class added to form-group input')
         $(e.relatedTarget).val('pizzas').trigger('input')
       })
       .on('valid.bs.validator', function (e) {
         ok(!$(this).find('.form-group').hasClass('has-error'), '.has-error class removed from form-group')
+        ok(!$(this).find('.form-group').find('input').hasClass('has-error'), '.has-error class removed to form-group input')
         start()
       })
       .validator('validate')
