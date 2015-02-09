@@ -1,5 +1,8 @@
 Changelog
 ========
+### 0.7.1
+* Added func for new login modal
+
 ### 0.7.0
 * Adding a `disable` option to control whether or not the form submit is disabled if the form is invalid. Defaults to true. See #46.
 * URI-encoding params sent via remote validator. Fixes #56.
